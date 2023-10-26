@@ -19,7 +19,7 @@ public class TransactionManager {
         boolean checkCode;
         String code;
         do {
-            checkCode =true;
+            checkCode = true;
             System.out.println("Nhap ma giao dich:");
             code = scanner.nextLine();
             for (Transaction transaction: transactionManager) {
@@ -56,31 +56,39 @@ public class TransactionManager {
         }
     }
 
-    public void editTransaction(Transaction transaction) {
+    public void editTransaction() {
         Scanner scanner = new Scanner(System.in);
         int edit;
-        do {
-            System.out.println("Nhap 1 de thay doi ten giao dich:");
-            System.out.println("Nhap 2 de thay doi loai giao dich:");
-            System.out.println("Nhap 3 de thay doi so tien:");
-            System.out.println("Nhap 4 de thay doi thoi gian:");
-            edit = scanner.nextInt();
+        System.out.println("Nhap ma giao dich can sua");
+        String editCode = scanner.nextLine();
+        for (Transaction transaction: transactionManager) {
+            if (transaction.getCode().equals(editCode)) {
+                do {
+                    System.out.println("Nhap 1 de thay doi ten giao dich:");
+                    System.out.println("Nhap 2 de thay doi loai giao dich:");
+                    System.out.println("Nhap 3 de thay doi so tien:");
+                    System.out.println("Nhap 4 de thay doi thoi gian:");
+                    edit = scanner.nextInt();
 
-            switch (edit) {
-                case 1:
-                    editTransactionName(transaction, scanner);
-                    return;
-                case 2:
-                    editKindOfTransaction(transaction, scanner);
-                    return;
-                case 3:
-                    editMoney(transaction, scanner);
-                    return;
-                case 4:
-                    editTime(transaction, scanner);
-                    return;
+                    switch (edit) {
+                        case 1:
+                            editTransactionName(transaction, scanner);
+                            return;
+                        case 2:
+                            editKindOfTransaction(transaction, scanner);
+                            return;
+                        case 3:
+                            editMoney(transaction, scanner);
+                            return;
+                        case 4:
+                            editTime(transaction, scanner);
+                            return;
+                    }
+                } while (true);
+            } else {
+                System.out.println("Khong tim thay giao dich");
             }
-        } while (true);
+        }
     }
 
     private static void editTime(Transaction transaction, Scanner scanner) {

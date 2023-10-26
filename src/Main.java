@@ -13,6 +13,7 @@ public class Main {
             System.out.println("3. Hien thi danh sach giao dich");
             System.out.println("4. Tim kiem giao dich");
             System.out.println("5. Sap xep danh sach giao dich");
+            System.out.println("6. Sua thong tin giao dich");
             System.out.println("0. Thoat chuong trinh");
             choose = scanner.nextInt();
             switch (choose) {
@@ -31,6 +32,9 @@ public class Main {
                     break;
                 case 5:
                     transactionManager.sortTransaction();
+                    break;
+                case 6:
+                    transactionManager.editTransaction();
                     break;
                 case 0:
                     return;
