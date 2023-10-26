@@ -8,6 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choose;
         do {
+            System.out.println("\n");
             System.out.println("1. Them giao dich");
             System.out.println("2. Xoa giao dich");
             System.out.println("3. Hien thi danh sach giao dich");
