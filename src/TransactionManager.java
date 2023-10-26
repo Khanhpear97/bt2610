@@ -16,8 +16,19 @@ public class TransactionManager {
         String name = scanner.nextLine();
         System.out.println("Nhap loai giao dich:");
         String kind = scanner.nextLine();
-        System.out.println("Nhap ma giao dich:");
-        String code = scanner.nextLine();
+        boolean checkCode;
+        String code;
+        do {
+            checkCode =true;
+            System.out.println("Nhap ma giao dich:");
+            code = scanner.nextLine();
+            for (Transaction transaction: transactionManager) {
+                if (transaction.getCode().equals(code)) {
+                    checkCode = false;
+                    break;
+                }
+            }
+        } while (!checkCode);
         System.out.println("Nhap so tien:");
         int money = scanner.nextInt();
         scanner.nextLine();
